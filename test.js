@@ -17,6 +17,7 @@ let compChoice;
         return compChoice;
     }
 }
+
     let text = document.getElementById("1");
     let secText = document.getElementById("2");
     let resultText = document.getElementById("result");
@@ -28,12 +29,13 @@ let compChoice;
             ans = document.getElementById(ans).value;
             text.innerHTML=`User selected :${ans}`;
             computer();
-            secText.innerHTML= `Computerselected : ${compChoice}`;
+            secText.innerHTML= `Computer selected : ${compChoice}`;
             compare()
 
         }))
         let userScore = document.getElementById("human");
         let userCount = 0
+        let final_Score = 5
         let computerScore = document.getElementById("computer");
         let computerCount = 0
         function compare(){
@@ -44,11 +46,28 @@ let compChoice;
                 resultText.innerHTML="User Wins"
                 userCount++
                 userScore.innerHTML = `UserScore : ${userCount}`
+                if(userCount==5)
+           {
+            alert("User Won, play again?");
+            computerCount=0;
+            userCount=0;
+            userScore.innerHTML = `User Score : ${userCount}`
+            computerScore.innerHTML = `Computer Score : ${computerCount}`
+           }
             }
             else{
                 resultText.innerHTML="Computer Wins"
                 computerCount++
-                computerScore.innerHTML = `ComputerScore : ${computerCount}`
+                computerScore.innerHTML = `Computer Score : ${computerCount}`
+                if(computerCount==5)
+                {
+                 alert("Computer Won,Play again?");
+                 computerCount=0;
+                 userCount=0;
+                 userScore.innerHTML = `User Score : ${userCount}`
+                 computerScore.innerHTML = `Computer Score : ${computerCount}`
+     
+                }
             }
         }
 
